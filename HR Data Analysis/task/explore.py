@@ -102,11 +102,25 @@ x = (
 
 # Part 5/5
 
-table = new_df.pivot_table(index="Department", columns=["left", "salary"], values="average_monthly_hours", aggfunc='median').round(2)
-x = table.where((table[(0, 'high')] < table[(0, 'medium')]) | (table[(1, 'low')] < table[(1, 'high')])).dropna().to_dict()
+table = new_df.pivot_table(
+    index="Department",
+    columns=["left", "salary"],
+    values="average_monthly_hours",
+    aggfunc='median'
+).round(2)
+ans1 = table.where(
+    (table[(0, 'high')] < table[(0, 'medium')]) | (table[(1, 'low')] < table[(1, 'high')])
+).dropna().to_dict()
 
-table2 = new_df.pivot_table(index="time_spend_company", columns="promotion_last_5years", values=['satisfaction_level', 'last_evaluation'], aggfunc=['max', 'mean', 'min']).round(2)
-z = table2.where(table2['mean', 'last_evaluation', 0] > table2['mean', 'last_evaluation', 1]).dropna().to_dict()
+table2 = new_df.pivot_table(
+    index="time_spend_company",
+    columns="promotion_last_5years",
+    values=['satisfaction_level', 'last_evaluation'],
+    aggfunc=['max', 'mean', 'min']
+).round(2)
+ans2 = table2.where(
+    table2['mean', 'last_evaluation', 0] > table2['mean', 'last_evaluation', 1]
+).dropna().to_dict()
 
-print(x)
-print(z)
+print(ans1)
+print(ans2)
