@@ -6,3 +6,5 @@ This is the *HR Data Analysis* project I made myself.
 Here's the link to the project: https://hyperskill.org/projects/268
 
 Check out my profile: https://hyperskill.org/profile/514894009
+
+More of my study projects: https://github.com/AKrivo/HyperSkill
